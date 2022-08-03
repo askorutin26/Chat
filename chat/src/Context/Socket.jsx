@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
@@ -69,7 +70,7 @@ function SocketProvider({ socket, children }) {
 
   return (
     <SocketContext.Provider value={socketHandlers}>
-      {children}
+      { children }
     </SocketContext.Provider>
   );
 }

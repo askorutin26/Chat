@@ -17,27 +17,26 @@ import { setShow, setId } from '../slices/modals.js';
 function ChannelsList() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { channels, currentChannelId } = useAppContext();
+  const {channels, currentChannelId} = useAppContext();
   function RemovableButton({props}) {
 
     const {
       id, name, isActive, btnClass,
     } = props;
-    console.log(name)
     return (
-      <Dropdown as={ ButtonGroup } bsPrefix="d-flex dropdown btn-group">
+      <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
         <Button
-          id={ id }
+          id={id}
           variant="success"
           bsPrefix={btnClass}
-          onClick={ (e) => {
+          onClick={(e) => {
             e.preventDefault();
             dispatch(setCurrentChannel(id));
           }}
         >
           <span className="me-1">
             # </span>
-          {name}
+          { name }
         </Button>
         <Dropdown.Toggle
           split
@@ -46,7 +45,7 @@ function ChannelsList() {
           } flex-grow-0 dropdown-toggle dropdown-toggle-split btn`}
           id="dropdown-split-basic"
         >
-          {' '}
+          { ' ' }
           <span className="visually-hidden">
             Управление каналом
           </span>
@@ -60,7 +59,7 @@ function ChannelsList() {
               dispatch(setShow({ remove: true }));
             }}
           >
-            {t('delete')}
+            { t('delete') }
           </Dropdown.Item>
           <Dropdown.Item
             href="#/action-2"
@@ -70,7 +69,7 @@ function ChannelsList() {
               dispatch(setShow({ rename: true }));
             }}
           >
-            {t('rename')}
+            { t('rename') }
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
@@ -92,7 +91,7 @@ function ChannelsList() {
         <span className="me-1">
           #
         </span>
-        {name}
+        { name }
       </Button>
     );
   }
@@ -124,11 +123,11 @@ function ChannelsList() {
           // const { id } = e.target.dataset;
         }}
       >
-        {removable ? (
+        { removable ? (
           <RemovableButton props={props} />
         ) : (
           <NonRemovableButton props={props} />
-        )}
+        ) }
       </ListGroup.Item>
     );
   });

@@ -100,16 +100,16 @@ function Chat() {
 
   return (
     <>
-      {modals.add && <AddChannel />}
-      {modals.remove && <SubmitDelete />}
-      {modals.rename && <RenameChannel />}
+      { modals.add && <AddChannel /> }
+      { modals.remove && <SubmitDelete /> }
+      { modals.rename && <RenameChannel /> }
       <ToastContainer />
       <Container bsPrefix="container h-100 my-4 overflow-hidden rounded shadow">
         <Container bsPrefix="row h-100 bg-white flex-md-row">
           <Container bsPrefix="col-4 col-md-2 border-end pt-5 px-0 bg-light">
             <Container bsPrefix="d-flex justify-content-between mb-2 ps-4 pe-2">
               <span>
-                {t('channels')}
+                { t('channels') }
               </span>
               <button
                 type="button"
@@ -125,31 +125,31 @@ function Chat() {
               </button>
             </Container>
             <ListGroup>
-              {channels && <ChannelList />}
+              { channels && <ChannelList /> }
             </ListGroup>
           </Container>
           <Container bsPrefix="col p-0 h-100">
             <Container bsPrefix="d-flex flex-column h-100">
               <Container bsPrefix="bg-light mb-4 p-3 shadow-sm small">
                 <p className="m-0">
-                  {currentChannelName && (
+                  { currentChannelName && (
                   <b>
                     #
-                    {currentChannelName}
+                    { currentChannelName }
                   </b>
-                  )}
+                  ) }
                 </p>
                 <span className="text-muted">
-                  {' '}
-                  {t('message', { count: messagesCount })}
-                  {' '}
+                  { ' ' }
+                  { t('message', { count: messagesCount }) }
+                  { ' ' }
                 </span>
               </Container>
               <Container
                 id="messages-box"
                 bsPrefix="chat-messages overflow-auto px-5"
               >
-                {messages && <Messages />}
+                { messages && <Messages /> }
               </Container>
               <Container bsPrefix="mt-auto px-5 py-3">
                 <MessageInput />

@@ -24,7 +24,7 @@ function AppProvider({ children }) {
   };
   return (
     <AppContext.Provider value={appProps}>
-      {children}
+      { children }
     </AppContext.Provider>
   );
 }

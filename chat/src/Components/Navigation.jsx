@@ -19,7 +19,7 @@ function Navigation() {
         <Navbar.Brand as={Link} to={chatPage()}>
           Hexlet Chat
         </Navbar.Brand>
-        {loggedIn ? (
+        { loggedIn ? (
           <Button
             as={Link}
             to={loginPage()}
@@ -29,9 +29,9 @@ function Navigation() {
               logOut();
             }}
           >
-            {t('logOut')}
+            { t('logOut') }
           </Button>
-        ) : null}
+        ) : null }
       </Container>
     </Navbar>
   );
