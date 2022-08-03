@@ -7,7 +7,9 @@ const currentChannelSlice = createSlice({
 
   reducers: {
     setCurrentChannel: (state, action) => {
-      state.id = action;
+      const stateCopy = state;
+      stateCopy.id = action;
+      state = stateCopy;
     },
   },
 });

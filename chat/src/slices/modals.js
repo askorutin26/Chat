@@ -12,10 +12,14 @@ const modalsSlice = createSlice({
   reducers: {
     setShow: (state, action) => {
       const key = Object.keys(action.payload);
-      state[key] = action.payload[key];
+      const stateCopy = state;
+      stateCopy[key] = action.payload[key];
+
     },
     setId: (state, action) => {
-      state.idToChange = action.payload;
+      const stateCopy = state;
+      stateCopy.idToChange = action.payload;
+
     },
   },
 });

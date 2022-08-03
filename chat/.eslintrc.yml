@@ -28,4 +28,5 @@ rules: {
   no-trailing-spaces: 1,
   object-curly-newline: 1,
   react/react-in-jsx-scope: off,
+  
 }

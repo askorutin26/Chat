@@ -19,9 +19,11 @@ function ChannelsList() {
   const { t } = useTranslation();
   const { channels, currentChannelId } = useAppContext();
   function RemovableButton(props) {
+    console.log('REMOVABLE')
+
     const {
       id, name, isActive, btnClass,
-    } = props;
+    } = props.props;
     return (
       <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
         <Button
@@ -77,7 +79,8 @@ function ChannelsList() {
     );
   }
   function NonRemovableButton(props) {
-    const { id, name, btnClass } = props;
+    console.log(props)
+    const { id, name, btnClass } = props.props;
     return (
       <Button
         id={id}
@@ -129,9 +132,9 @@ function ChannelsList() {
         }}
       >
         {removable ? (
-          <RemovableButton {...props} />
+          <RemovableButton props = {props} />
         ) : (
-          <NonRemovableButton {...props} />
+          <NonRemovableButton props = {props} />
         )}
       </ListGroup.Item>
     );
