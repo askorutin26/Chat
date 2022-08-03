@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate
-} from 'react-router-dom';
+  Navigate,
+} from "react-router-dom";
 
-import routes from './routes';
-import Chat from './Components/Chat.jsx';
-import Login from './Components/Login.jsx';
-import Signup from './Components/Signup.jsx';
-import Empty from './Components/Empty.jsx';
-import { AuthProvider } from './Context/Auth';
-import { useAuthContext } from './Hooks';
-import Navigation from './Components/Navigation';
+import routes from "./routes";
+import Chat from "./Components/Chat.jsx";
+import Login from "./Components/Login.jsx";
+import Signup from "./Components/Signup.jsx";
+import Empty from "./Components/Empty.jsx";
+import { AuthProvider } from "./Context/Auth";
+import { useAuthContext } from "./Hooks";
+import Navigation from "./Components/Navigation";
 
 const { chatPage, loginPage, signupPage, emptyPage } = routes;
 function PrivatePage({ children }) {
