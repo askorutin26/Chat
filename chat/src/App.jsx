@@ -15,31 +15,33 @@ import { AuthProvider } from './Context/Auth';
 import { useAuthContext } from './Hooks';
 import Navigation from './Components/Navigation';
 
-const { chatPage, loginPage, signupPage, emptyPage } = routes;
+const {
+ chatPage, loginPage, signupPage, emptyPage
+} = routes;
 function PrivatePage({ children }) {
   const auth = useAuthContext();
   const { loggedIn } = auth;
-  return loggedIn ? children : <Navigate to={routes.loginPage()} />;
+  return loggedIn ? children : <Navigate to = {routes.loginPage()} />;
 }
 function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="d-flex flex-column h-100">
+        <div className = "d-flex flex-column h-100">
           <Navigation />
           <Routes>
             <Route
-              path={chatPage()}
-              element={
+              path = {chatPage()}
+              element = {(
                 <PrivatePage>
                   <Chat />
                 </PrivatePage>
-              }
+              )}
             />
 
-            <Route path={loginPage()} element={<Login />} />
-            <Route path={signupPage()} element={<Signup />} />
-            <Route path={emptyPage()} element={<Empty />} />
+            <Route path = {loginPage()} element = {<Login />} />
+            <Route path = {signupPage()} element = {<Signup />} />
+            <Route path = {emptyPage()} element = {<Empty />} />
           </Routes>
         </div>
       </Router>

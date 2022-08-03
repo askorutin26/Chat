@@ -19,7 +19,9 @@ function ChannelsList() {
   const { t } = useTranslation();
   const { channels, currentChannelId } = useAppContext();
   const RemovableButton = (props) => {
-    const { id, name, isActive, btnClass } = props;
+    const {
+ id, name, isActive, btnClass
+} = props;
     return (
       <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
         <Button
@@ -31,7 +33,10 @@ function ChannelsList() {
             dispatch(setCurrentChannel(id));
           }}
         >
-          <span className = 'me-1'># </span>
+          <span className = 'me-1'>
+#
+{' '}
+</span>
           {name}
         </Button>
         <Dropdown.Toggle
@@ -40,7 +45,12 @@ function ChannelsList() {
             isActive ? 'btn-secondary' : 'btn-light'
           } flex-grow-0 dropdown-toggle dropdown-toggle-split btn`}
           id="dropdown-split-basic"
-        > <span className = 'visually-hidden'>Управление каналом</span></Dropdown.Toggle>
+        >
+{' '}
+<span className = 'visually-hidden'>
+Управление каналом
+</span>
+</Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item
             href="#/action-1"
@@ -78,7 +88,9 @@ function ChannelsList() {
           dispatch(setCurrentChannel(id));
         }}
       >
-        <span className="me-1">#</span>
+        <span className="me-1">
+#
+</span>
         {name}
       </Button>
     );
@@ -93,9 +105,7 @@ function ChannelsList() {
       'rounded-0',
       'text-start',
       'text-truncate',
-      {
-        'btn-secondary': isActive
-      }
+      {'btn-secondary': isActive}
     );
     const props = {
       id,

@@ -24,7 +24,9 @@ function SocketProvider({ socket, children }) {
   const { t } = useTranslation();
   useEffect(() => {
     socket.on('newMessage', (message) => {
-      const { id, channelId, username, ...rest } = message;
+      const {
+ id, channelId, username, ...rest
+} = message;
       const body = Object.values(rest).join('');
       const normalizedMessage = {
         body,

@@ -32,9 +32,7 @@ const ru = {
     channelRemoved: 'Канал удалён',
     connectionError: 'Ошибка соединения',
 
-    loginErrors: {
-      authError: 'Неверные имя пользователя или пароль',
-    },
+    loginErrors: { authError: 'Неверные имя пользователя или пароль', },
     signupErrors: {
       incorrectSignupData: 'Неверные имя пользователя или пароль',
       userExists: 'Такой пользователь уже существует',
