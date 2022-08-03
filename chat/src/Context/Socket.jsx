@@ -57,7 +57,7 @@ function SocketProvider({ socket, children }) {
       store.dispatch(renameChannel({ id, changes: { removable, name } }));
       notify(t('channelRenamed'));
     });
-  }, []);
+  }, [socket, t]);
 
   const socketHandlers = {
     addNewMessage: (message) => socket.emit('newMessage', message),

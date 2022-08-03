@@ -25,6 +25,7 @@
             "single",
             "avoid-escape"
         ],
+        "object-curly-newline": 1,
         "import/no-unresolved": 0,
         "react/prop-types": 0,
         "no-console": 0,
@@ -35,6 +36,7 @@
         "functional/no-try-statement": 0,
         "functional/no-throw-statement": 0,
         "testing-library/no-debug": 0,
+        "no-trailing-spaces": 1,
         "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": [
             1,

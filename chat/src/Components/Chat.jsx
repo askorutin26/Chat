@@ -87,7 +87,7 @@ function Chat() {
         navigate(loginPage());
         notifyError(t('connectionError'));
       });
-  }, []);
+  }, [dispatch, logOut, loginPage, navigate, t]);
   const {
     channels, messages, currentChannelId, modals
   } = useAppContext();
