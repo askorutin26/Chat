@@ -5,8 +5,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "react-app",
-        "eslint:recommended"
+        "eslint:recommended",
+        "react-app"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -37,7 +37,12 @@
             0,
             "always"
         ],
-        "react/jsx-one-expression-per-line": 1,
+        "react/jsx-one-expression-per-line": [
+            2,
+            {
+                "allow": "none"
+            }
+        ],
         "react/jsx-wrap-multilines": [
             "error",
             {

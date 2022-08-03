@@ -17,9 +17,7 @@ const init = async (socket) => {
   i18n.use(initReactI18next).init({
     lng: 'ru',
     debug: true,
-    resources: {
-      ru,
-    },
+    resources: {ru,},
   });
 
   const vdom = (

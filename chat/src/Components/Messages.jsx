@@ -14,7 +14,11 @@ function Messages() {
     const { body, id, username } = message;
     return (
       <div className="text-break mb-2" id={id} key={id}>
-        <b>{username}</b>: {filter.clean(body)}
+        <b>
+{username}
+</b>
+:
+{filter.clean(body)}
       </div>
     );
   });

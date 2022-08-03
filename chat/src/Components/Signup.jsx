@@ -92,7 +92,9 @@ export default function Signup() {
                     className="col-12 col-md-6 mt-3 mt-mb-0"
                     onSubmit={handleSubmit}
                   >
-                    <h1 className="text-center mb-4">{t('signingUp')}</h1>
+                    <h1 className="text-center mb-4">
+{t('signingUp')}
+</h1>
                     <Form.Group className="form-floating mb-3">
                       <Form.Control
                         type="text"
@@ -176,8 +178,13 @@ export default function Signup() {
             </Container>
             <Container bsPrefix="card-footer p-4">
               <Container bsPrefix="text-center">
-                <span>{`${t('noProfile')}?`} </span>
-                <a href="/signup">{t('signUp')}</a>
+                <span>
+{`${t('noProfile')}?`}
+{' '}
+ </span>
+                <a href="/signup">
+{t('signUp')}
+</a>
               </Container>
             </Container>
           </Container>

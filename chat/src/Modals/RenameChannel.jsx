@@ -42,7 +42,9 @@ const RenameChannel = () => {
         }}
       >
         <Modal.Header>
-          <Modal.Title>{`${t('renameChannel')} "${name}" ?`}</Modal.Title>
+          <Modal.Title>
+{`${t('renameChannel')} "${name}" ?`}
+</Modal.Title>
           <button
             type="button"
             aria-label="Close"
@@ -66,8 +68,12 @@ const RenameChannel = () => {
                 setChannelName(e.target.value);
               }}
             />
-                        <label className = 'visually-hidden' htmlFor="name">{t('channelName')}</label>
-            {error && <p className="text-danger">{t('channelExists')}</p>}
+                        <label className = 'visually-hidden' htmlFor="name">
+{t('channelName')}
+</label>
+            {error && <p className="text-danger">
+{t('channelExists')}
+</p>}
           </FormGroup>
         </Modal.Body>
         <Modal.Footer>
@@ -81,7 +87,8 @@ const RenameChannel = () => {
             }}
           >
             {' '}
-            {t('cancel')}{' '}
+            {t('cancel')}
+{' '}
           </button>
         </Modal.Footer>
       </form>

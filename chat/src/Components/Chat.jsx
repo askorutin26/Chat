@@ -109,7 +109,9 @@ function Chat() {
         <Container bsPrefix="row h-100 bg-white flex-md-row">
           <Container bsPrefix="col-4 col-md-2 border-end pt-5 px-0 bg-light">
             <Container bsPrefix="d-flex justify-content-between mb-2 ps-4 pe-2">
-              <span>{t('channels')}</span>
+              <span>
+{t('channels')}
+</span>
               <button
                 type="button"
                 className="p-0 text-primary btn btn-group-vertical"
@@ -123,17 +125,23 @@ function Chat() {
                 +
               </button>
             </Container>
-            <ListGroup>{channels && <ChannelList />}</ListGroup>
+            <ListGroup>
+{channels && <ChannelList />}
+</ListGroup>
           </Container>
           <Container bsPrefix="col p-0 h-100">
             <Container bsPrefix="d-flex flex-column h-100">
               <Container bsPrefix="bg-light mb-4 p-3 shadow-sm small">
                 <p className="m-0">
-                  {currentChannelName && <b># {currentChannelName}</b>}
+                  {currentChannelName && <b>
+#
+{currentChannelName}
+</b>}
                 </p>
                 <span className="text-muted">
                   {' '}
-                  {t('message', { count: messagesCount })}{' '}
+                  {t('message', { count: messagesCount })}
+{' '}
                 </span>
               </Container>
               <Container

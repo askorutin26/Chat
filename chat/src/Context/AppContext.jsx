@@ -22,7 +22,9 @@ function AppProvider({ children }) {
     modals,
     idToChange
   };
-  return <AppContext.Provider value={appProps}>{children}</AppContext.Provider>;
+  return (<AppContext.Provider value={appProps}>
+{children}
+</AppContext.Provider>);
 }
 export { AppProvider };
 export { AppContext };

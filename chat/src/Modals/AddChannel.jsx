@@ -40,7 +40,9 @@ const AddChannel = () => {
         }}
       >
         <Modal.Header>
-          <Modal.Title>{t('addChannel')}</Modal.Title>
+          <Modal.Title>
+{t('addChannel')}
+</Modal.Title>
           <button
             type="button"
             aria-label="Close"
@@ -64,8 +66,12 @@ const AddChannel = () => {
                 setChannelName(e.target.value);
               }}
             />
-            <label className = 'visually-hidden' htmlFor="name">{t('channelName')}</label>
-            {error && <p className="text-danger">{t('channelExists')}</p>}
+            <label className = 'visually-hidden' htmlFor="name">
+{t('channelName')}
+</label>
+            {error && <p className="text-danger">
+{t('channelExists')}
+</p>}
           </FormGroup>
         </Modal.Body>
         <Modal.Footer>
@@ -80,7 +86,8 @@ const AddChannel = () => {
             }}
           >
             {' '}
-            {t('cancel')}{' '}
+            {t('cancel')}
+{' '}
           </button>
         </Modal.Footer>
       </form>
