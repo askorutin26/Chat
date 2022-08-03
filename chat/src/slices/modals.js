@@ -14,12 +14,10 @@ const modalsSlice = createSlice({
       const key = Object.keys(action.payload);
       const stateCopy = state;
       stateCopy[key] = action.payload[key];
-
     },
     setId: (state, action) => {
       const stateCopy = state;
       stateCopy.idToChange = action.payload;
-
     },
   },
 });

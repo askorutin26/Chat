@@ -9,7 +9,6 @@ const currentChannelSlice = createSlice({
     setCurrentChannel: (state, action) => {
       const stateCopy = state;
       stateCopy.id = action;
-      state = stateCopy;
     },
   },
 });

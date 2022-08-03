@@ -91,7 +91,6 @@ function Chat() {
   const {
     channels, messages, currentChannelId, modals,
   } = useAppContext();
-console.log(channels)
   const currentChannelName = currentChannelId
     ? channels.find((channel) => channel.id === currentChannelId).name
     : null;

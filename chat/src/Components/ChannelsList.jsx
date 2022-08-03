@@ -19,7 +19,6 @@ function ChannelsList() {
   const { t } = useTranslation();
   const { channels, currentChannelId } = useAppContext();
   function RemovableButton(props) {
-    console.log('REMOVABLE')
 
     const {
       id, name, isActive, btnClass,
@@ -79,8 +78,8 @@ function ChannelsList() {
     );
   }
   function NonRemovableButton(props) {
-    console.log(props)
-    const { id, name, btnClass } = props.props;
+
+    const { id, name, btnClass } = {props};
     return (
       <Button
         id={id}
@@ -132,9 +131,9 @@ function ChannelsList() {
         }}
       >
         {removable ? (
-          <RemovableButton props = {props} />
+          <RemovableButton props={props} />
         ) : (
-          <NonRemovableButton props = {props} />
+          <NonRemovableButton props={props} />
         )}
       </ListGroup.Item>
     );
