@@ -18,7 +18,7 @@ function ChannelsList() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { channels, currentChannelId } = useAppContext();
-  function RemovableButton({ props}) {
+  function RemovableButton({ props }) {
     const {
       id, name, isActive, btnClass,
     } = props;
@@ -28,10 +28,10 @@ function ChannelsList() {
           id={id}
           variant="success"
           bsPrefix={btnClass}
-          onClick={ (e) => {
+          onClick={(e) => {
             e.preventDefault();
             dispatch(setCurrentChannel(id));
-          } }
+          }}
         >
           <span className="me-1"># </span>
           { name }
