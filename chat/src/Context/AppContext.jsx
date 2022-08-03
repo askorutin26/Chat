@@ -1,10 +1,10 @@
-import React, { createContext } from "react";
+import React, { createContext } from 'react';
 
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { channelsSelectors } from "../slices/channels";
+import { channelsSelectors } from '../slices/channels';
 
-import { messagesSelectors } from "../slices/messages.js";
+import { messagesSelectors } from '../slices/messages.js';
 
 const AppContext = createContext({});
 

@@ -1,18 +1,18 @@
-import { createContext, useEffect } from "react";
-import { toast } from "react-toastify";
-import { useTranslation } from "react-i18next";
+import { createContext, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 import {
   addChannel,
   removeChannel,
   renameChannel
-} from "../slices/channels.js";
-import { addMessage } from "../slices/messages.js";
-import store from "../slices/index.js";
+} from '../slices/channels.js';
+import { addMessage } from '../slices/messages.js';
+import store from '../slices/index.js';
 
 const SocketContext = createContext({});
 const notify = (message) =>
   toast.success(message, {
-    position: "top-right",
+    position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
@@ -23,9 +23,9 @@ const notify = (message) =>
 function SocketProvider({ socket, children }) {
   const { t } = useTranslation();
   useEffect(() => {
-    socket.on("newMessage", (message) => {
+    socket.on('newMessage', (message) => {
       const { id, channelId, username, ...rest } = message;
-      const body = Object.values(rest).join("");
+      const body = Object.values(rest).join('');
       const normalizedMessage = {
         body,
         channelId,
@@ -35,35 +35,35 @@ function SocketProvider({ socket, children }) {
       store.dispatch(addMessage(normalizedMessage));
     });
 
-    socket.on("newChannel", (channel) => {
+    socket.on('newChannel', (channel) => {
       const { removable, id, ...rest } = channel;
-      const name = Object.values(rest).join("");
+      const name = Object.values(rest).join('');
       const normalizedChannel = {
         name,
         id,
         removable
       };
       store.dispatch(addChannel(normalizedChannel));
-      notify(t("channelCreated"));
+      notify(t('channelCreated'));
     });
 
-    socket.on("removeChannel", (data) => {
+    socket.on('removeChannel', (data) => {
       store.dispatch(removeChannel(data.id));
-      notify(t("channelRemoved"));
+      notify(t('channelRemoved'));
     });
 
-    socket.on("renameChannel", (data) => {
+    socket.on('renameChannel', (data) => {
       const { id, removable, name } = data;
       store.dispatch(renameChannel({ id, changes: { removable, name } }));
-      notify(t("channelRenamed"));
+      notify(t('channelRenamed'));
     });
   }, []);
 
   const socketHandlers = {
-    addNewMessage: (message) => socket.emit("newMessage", message),
-    addNewChannel: (channel) => socket.emit("newChannel", channel),
-    removeChannel: (channel) => socket.emit("removeChannel", channel),
-    renameChannel: (channel) => socket.emit("renameChannel", channel)
+    addNewMessage: (message) => socket.emit('newMessage', message),
+    addNewChannel: (channel) => socket.emit('newChannel', channel),
+    removeChannel: (channel) => socket.emit('removeChannel', channel),
+    renameChannel: (channel) => socket.emit('renameChannel', channel)
   };
 
   return (
