@@ -18,11 +18,12 @@ function ChannelsList() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { channels, currentChannelId } = useAppContext();
-  function RemovableButton(props) {
+  function RemovableButton({props}) {
 
     const {
       id, name, isActive, btnClass,
-    } = props.props;
+    } = props;
+    console.log(name)
     return (
       <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
         <Button
@@ -77,9 +78,9 @@ function ChannelsList() {
       </Dropdown>
     );
   }
-  function NonRemovableButton(props) {
+  function NonRemovableButton({props}) {
 
-    const { id, name, btnClass } = {props};
+    const { id, name, btnClass } = props;
     return (
       <Button
         id={id}
@@ -123,11 +124,6 @@ function ChannelsList() {
         onClick={(e) => {
           e.preventDefault();
           // const { id } = e.target.dataset;
-          if (id) {
-            console.log(id);
-            const dropdown = document.querySelector('a .dropdown-item');
-            console.log(dropdown);
-          }
         }}
       >
         {removable ? (
