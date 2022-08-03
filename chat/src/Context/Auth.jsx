@@ -15,7 +15,7 @@ function AuthProvider({ children }) {
   const props = { loggedIn, logIn, logOut };
   return (
     <AuthContext.Provider value={props}>
-      {children}
+      { children }
     </AuthContext.Provider>
   );
 }

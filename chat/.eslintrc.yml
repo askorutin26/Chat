@@ -13,26 +13,19 @@ parserOptions:
 plugins:
   - react
 rules: {
-  react/jsx-filename-extension: [0, { "extensions": [".js", ".jsx"] }],
-  react/prop-types: 0,
-  import/extensions: 0,
+ import/extensions: 0, 
   import/no-unresolved: 0,
-  # https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
-  react/function-component-definition: 0,
-  no-param-reassign: 0,
-  import/prefer-default-export: 1,
-  consistent-return: 0,
-  react/jsx-no-useless-fragment: 0,
-  react/jsx-props-no-spreading: 1,
-  react-hooks/exhaustive-deps: 0,
-  no-trailing-spaces: 1,
-  object-curly-newline: 1,
-  react/react-in-jsx-scope: off,
-  react/jsx-curly-spacing: [warn, {
-  when: never,
-  children: {
-    when: always
-  }
-}]
+  react/prop-types: 0,
+  no-console: 0,
+  functional/no-conditional-statement: 0,
+  functional/no-expression-statement: 0,
+  functional/immutable-data: 0,
+  functional/functional-parameters: 0,
+  functional/no-try-statement: 0,
+  functional/no-throw-statement: 0,
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }],
+  testing-library/no-debug: 0,
+  react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }],
+ 
   
 }

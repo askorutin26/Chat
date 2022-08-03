@@ -17,8 +17,8 @@ import { setShow, setId } from '../slices/modals.js';
 function ChannelsList() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const {channels, currentChannelId} = useAppContext();
-  function RemovableButton({props}) {
+  const { channels, currentChannelId} = useAppContext();
+  function RemovableButton({ props}) {
 
     const {
       id, name, isActive, btnClass,
@@ -34,8 +34,7 @@ function ChannelsList() {
             dispatch(setCurrentChannel(id));
           }}
         >
-          <span className="me-1">
-            # </span>
+          <span className="me-1"># </span>
           { name }
         </Button>
         <Dropdown.Toggle

@@ -17,7 +17,7 @@ function SubmitDelete() {
   console.log(channelToDelete);
   const name = (
     <p className="font-weight-bold">
-      {`"${channelToDelete.name}"`}
+      { `"${channelToDelete.name}"` }
     </p>
   );
 
@@ -32,7 +32,7 @@ function SubmitDelete() {
       >
         <Modal.Header>
           <Modal.Title>
-            {t('submitDeletion')}
+            { t('submitDeletion') }
           </Modal.Title>
           <button
             type="button"
@@ -47,15 +47,15 @@ function SubmitDelete() {
         </Modal.Header>
         <Modal.Body>
           <h4 className="font-weight-normal">
-            {' '}
-            {`${t('submitDeleteChannel')}`}
-            {name}
-            {' '}
+            { ' ' }
+            { `${t('submitDeleteChannel')}` }
+            { name }
+            { ' ' }
           </h4>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-danger" type="submit">
-            {t('delete')}
+            { t('delete') }
           </button>
           <button
             type="button"
@@ -66,9 +66,9 @@ function SubmitDelete() {
               dispatch(setShow({ remove: false }));
             }}
           >
-            {' '}
-            {t('cancel')}
-            {' '}
+            { ' ' }
+            { t('cancel') }
+            { ' ' }
           </button>
         </Modal.Footer>
       </form>

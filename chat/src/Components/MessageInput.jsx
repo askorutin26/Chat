@@ -53,7 +53,7 @@ function MessageInput() {
         />
 
         <Button type="submit" className="btn btn-primary btn-group-vertical">
-          {t('send')}
+          { t('send') }
         </Button>
       </InputGroup>
     </Form>

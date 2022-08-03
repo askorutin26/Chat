@@ -79,7 +79,7 @@ export default function Signup() {
                     });
                 }}
               >
-                {({
+                { ({
                   values,
                   errors,
                   touched,
@@ -93,7 +93,7 @@ export default function Signup() {
                     onSubmit={handleSubmit}
                   >
                     <h1 className="text-center mb-4">
-                      {t('signingUp')}
+                      { t('signingUp') }
                     </h1>
                     <Form.Group className="form-floating mb-3">
                       <Form.Control
@@ -108,13 +108,13 @@ export default function Signup() {
                         isInvalid={touched.username && !!errors.username}
                       />
                       <Form.Label htmlFor="username">
-                        {t('signupUser')}
+                        { t('signupUser') }
                       </Form.Label>
-                      {errors.username && touched.username ? (
+                      { errors.username && touched.username ? (
                         <p className="text-danger">
-                          {t(`signupErrors.${errors.username}`)}
+                          { t(`signupErrors.${errors.username}`) }
                         </p>
-                      ) : null}
+                      ) : null }
                     </Form.Group>
                     <Form.Group className="form-floating mb-4">
                       <Form.Control
@@ -129,13 +129,13 @@ export default function Signup() {
                         isInvalid={touched.password && !!errors.password}
                       />
                       <Form.Label htmlFor="password">
-                        {t('password')}
+                        { t('password') }
                       </Form.Label>
-                      {errors.password && touched.password ? (
+                      { errors.password && touched.password ? (
                         <p className="text-danger">
-                          {t(`signupErrors.${errors.password}`)}
+                          { t(`signupErrors.${errors.password}`) }
                         </p>
-                      ) : null}
+                      ) : null }
                     </Form.Group>
                     <Form.Group className="form-floating mb-4">
                       <Form.Control
@@ -152,17 +152,17 @@ export default function Signup() {
                         }
                       />
                       <Form.Label htmlFor="repeatedPassword">
-                        {t('repeatPassword')}
+                        { t('repeatPassword') }
                       </Form.Label>
-                      {errors.repeatedPassword && touched.repeatedPassword ? (
+                      { errors.repeatedPassword && touched.repeatedPassword ? (
                         <p className="text-danger">
-                          {t(`signupErrors.${errors.repeatedPassword}`)}
+                          { t(`signupErrors.${errors.repeatedPassword}`) }
                         </p>
-                      ) : null}
+                      ) : null }
                     </Form.Group>
 
                     <p className="text-danger">
-                      {errorName && t(`signupErrors.${errorName}`)}
+                      { errorName && t(`signupErrors.${errorName}`) }
                     </p>
 
                     <Button
@@ -170,20 +170,20 @@ export default function Signup() {
                       type="submit"
                       className="w-100 mb-3 "
                     >
-                      {t('signUp')}
+                      { t('signUp') }
                     </Button>
                   </Form>
-                )}
+                ) }
               </Formik>
             </Container>
             <Container bsPrefix="card-footer p-4">
               <Container bsPrefix="text-center">
                 <span>
-                  {`${t('noProfile')}?`}
-                  {' '}
+                  { `${t('noProfile')}?` }
+                  { ' ' }
                 </span>
                 <a href="/signup">
-                  {t('signUp')}
+                  { t('signUp') }
                 </a>
               </Container>
             </Container>

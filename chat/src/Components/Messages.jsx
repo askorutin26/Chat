@@ -15,10 +15,10 @@ function Messages() {
     return (
       <div className="text-break mb-2" id={id} key={id}>
         <b>
-          {username}
+          { username }
         </b>
         :
-        {filter.clean(body)}
+        { filter.clean(body) }
       </div>
     );
   });

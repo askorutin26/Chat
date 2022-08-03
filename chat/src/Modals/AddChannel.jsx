@@ -41,7 +41,7 @@ function AddChannel() {
       >
         <Modal.Header>
           <Modal.Title>
-            {t('addChannel')}
+            { t('addChannel') }
           </Modal.Title>
           <button
             type="button"
@@ -67,13 +67,13 @@ function AddChannel() {
               }}
             />
             <label className="visually-hidden" htmlFor="name">
-              {t('channelName')}
+              { t('channelName') }
             </label>
-            {error && (
+            { error && (
             <p className="text-danger">
-              {t('channelExists')}
+              { t('channelExists') }
             </p>
-            )}
+            ) }
           </FormGroup>
         </Modal.Body>
         <Modal.Footer>
@@ -87,9 +87,9 @@ function AddChannel() {
               dispatch(setShow({ add: false }));
             }}
           >
-            {' '}
-            {t('cancel')}
-            {' '}
+            { ' ' }
+            { t('cancel') }
+            { ' ' }
           </button>
         </Modal.Footer>
       </form>

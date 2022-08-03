@@ -43,7 +43,7 @@ function RenameChannel() {
       >
         <Modal.Header>
           <Modal.Title>
-            {`${t('renameChannel')} "${name}" ?`}
+            { `${t('renameChannel')} "${name}" ?` }
           </Modal.Title>
           <button
             type="button"
@@ -69,13 +69,13 @@ function RenameChannel() {
               }}
             />
             <label className="visually-hidden" htmlFor="name">
-              {t('channelName')}
+              { t('channelName') }
             </label>
-            {error && (
+            { error && (
             <p className="text-danger">
-              {t('channelExists')}
+              { t('channelExists') }
             </p>
-            )}
+            ) }
           </FormGroup>
         </Modal.Body>
         <Modal.Footer>
@@ -88,9 +88,9 @@ function RenameChannel() {
               e.preventDefault();
             }}
           >
-            {' '}
-            {t('cancel')}
-            {' '}
+            { ' ' }
+            { t('cancel') }
+            { ' ' }
           </button>
         </Modal.Footer>
       </form>

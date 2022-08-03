@@ -55,7 +55,7 @@ export default function Login() {
                     });
                 }}
               >
-                {({
+                { ({
                   values, handleChange, handleSubmit, isSubmitting,
                 }) => (
                   <Form
@@ -63,7 +63,7 @@ export default function Login() {
                     onSubmit={handleSubmit}
                   >
                     <h1 className="text-center mb-4">
-                      {t('logIn')}
+                      { t('logIn') }
                     </h1>
                     <Form.Group className="form-floating mb-3">
                       <Form.Control
@@ -76,7 +76,7 @@ export default function Login() {
                         value={values.username}
                       />
                       <Form.Label htmlFor="username">
-                        {t('username')}
+                        { t('username') }
                       </Form.Label>
                     </Form.Group>
                     <Form.Group className="form-floating mb-4">
@@ -90,34 +90,34 @@ export default function Login() {
                         value={values.password}
                       />
                       <Form.Label htmlFor="password">
-                        {t('password')}
+                        { t('password') }
                       </Form.Label>
                     </Form.Group>
 
-                    {errorName && (
+                    { errorName && (
                     <p className="text-danger">
-                      {t(`loginErrors.${errorName}`)}
+                      { t(`loginErrors.${errorName}`) }
                     </p>
-                    )}
+                    ) }
                     <Button
                       type="submit"
                       className="w-100 mb-3 "
                       disabled={isSubmitting}
                     >
-                      {t('logIn')}
+                      { t('logIn') }
                     </Button>
                   </Form>
-                )}
+                ) }
               </Formik>
             </Container>
             <Container bsPrefix="card-footer p-4">
               <Container bsPrefix="text-center">
                 <span>
-                  {`${t('noProfile')}?`}
-                  {' '}
+                  { `${t('noProfile')}?` }
+                  { ' ' }
                 </span>
                 <a href="/signup">
-                  {t('signUp')}
+                  { t('signUp') }
                 </a>
               </Container>
             </Container>
