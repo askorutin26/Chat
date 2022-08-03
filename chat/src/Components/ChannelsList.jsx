@@ -17,9 +17,8 @@ import { setShow, setId } from '../slices/modals.js';
 function ChannelsList() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { channels, currentChannelId} = useAppContext();
+  const { channels, currentChannelId } = useAppContext();
   function RemovableButton({ props}) {
-
     const {
       id, name, isActive, btnClass,
     } = props;
@@ -29,10 +28,10 @@ function ChannelsList() {
           id={id}
           variant="success"
           bsPrefix={btnClass}
-          onClick={(e) => {
+          onClick={ (e) => {
             e.preventDefault();
             dispatch(setCurrentChannel(id));
-          }}
+          } }
         >
           <span className="me-1"># </span>
           { name }
@@ -74,8 +73,7 @@ function ChannelsList() {
       </Dropdown>
     );
   }
-  function NonRemovableButton({props}) {
-
+  function NonRemovableButton({ props }) {
     const { id, name, btnClass } = props;
     return (
       <Button
