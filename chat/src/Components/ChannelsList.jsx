@@ -25,20 +25,18 @@ function ChannelsList() {
     } = props;
     console.log(name)
     return (
-      <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
+      <Dropdown as={ ButtonGroup } bsPrefix="d-flex dropdown btn-group">
         <Button
-          id={id}
+          id={ id }
           variant="success"
           bsPrefix={btnClass}
-          onClick={(e) => {
+          onClick={ (e) => {
             e.preventDefault();
             dispatch(setCurrentChannel(id));
           }}
         >
           <span className="me-1">
-            #
-            {' '}
-          </span>
+            # </span>
           {name}
         </Button>
         <Dropdown.Toggle

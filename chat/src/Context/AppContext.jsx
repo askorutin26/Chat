@@ -10,7 +10,6 @@ const AppContext = createContext({});
 
 function AppProvider({ children }) {
   const channels = useSelector(channelsSelectors.selectAll);
-  console.log(channels)
   const messages = useSelector(messagesSelectors.selectAll);
   const currentChannelId = useSelector((state) => state.currentChannel).id
     .payload;
