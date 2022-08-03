@@ -3,8 +3,8 @@
 
 ### Link: https://chat-lvl4.herokuapp.com/
 
-### Start:
-`$npm ci`
+### Start locally:
+`$make install`
 
 `$make start`
 
