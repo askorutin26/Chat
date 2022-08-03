@@ -18,10 +18,10 @@ function ChannelsList() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { channels, currentChannelId } = useAppContext();
-  const RemovableButton = (props) => {
+  function RemovableButton(props) {
     const {
- id, name, isActive, btnClass
-} = props;
+      id, name, isActive, btnClass,
+    } = props;
     return (
       <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
         <Button
@@ -33,10 +33,10 @@ function ChannelsList() {
             dispatch(setCurrentChannel(id));
           }}
         >
-          <span className = 'me-1'>
-#
-{' '}
-</span>
+          <span className="me-1">
+            #
+            {' '}
+          </span>
           {name}
         </Button>
         <Dropdown.Toggle
@@ -46,11 +46,11 @@ function ChannelsList() {
           } flex-grow-0 dropdown-toggle dropdown-toggle-split btn`}
           id="dropdown-split-basic"
         >
-{' '}
-<span className = 'visually-hidden'>
-Управление каналом
-</span>
-</Dropdown.Toggle>
+          {' '}
+          <span className="visually-hidden">
+            Управление каналом
+          </span>
+        </Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item
             href="#/action-1"
@@ -75,8 +75,8 @@ function ChannelsList() {
         </Dropdown.Menu>
       </Dropdown>
     );
-  };
-  const NonRemovableButton = (props) => {
+  }
+  function NonRemovableButton(props) {
     const { id, name, btnClass } = props;
     return (
       <Button
@@ -89,12 +89,12 @@ function ChannelsList() {
         }}
       >
         <span className="me-1">
-#
-</span>
+          #
+        </span>
         {name}
       </Button>
     );
-  };
+  }
   return channels.map((channel) => {
     const { removable, id, name } = channel;
     const isActive = currentChannelId === id;
@@ -105,13 +105,13 @@ function ChannelsList() {
       'rounded-0',
       'text-start',
       'text-truncate',
-      {'btn-secondary': isActive}
+      { 'btn-secondary': isActive },
     );
     const props = {
       id,
       name,
       isActive,
-      btnClass
+      btnClass,
     };
     return (
       <ListGroup.Item

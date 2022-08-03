@@ -7,7 +7,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useWebSockets, useAppContext } from '../Hooks/index.js';
 
-const MessageInput = () => {
+function MessageInput() {
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState('');
   const inputEl = useRef();
@@ -30,7 +30,7 @@ const MessageInput = () => {
         const data = {
           ...message,
           channelId: currentChannelId,
-          username
+          username,
         };
         if (message.length !== 0) {
           addNewMessage(data);
@@ -58,5 +58,5 @@ const MessageInput = () => {
       </InputGroup>
     </Form>
   );
-};
+}
 export default MessageInput;

@@ -20,11 +20,13 @@ function AppProvider({ children }) {
     messages,
     currentChannelId,
     modals,
-    idToChange
+    idToChange,
   };
-  return (<AppContext.Provider value={appProps}>
-{children}
-</AppContext.Provider>);
+  return (
+    <AppContext.Provider value={appProps}>
+      {children}
+    </AppContext.Provider>
+  );
 }
 export { AppProvider };
 export { AppContext };

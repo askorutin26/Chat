@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useWebSockets, useAppContext } from '../Hooks/index.js';
 import { setShow } from '../slices/modals.js';
 
-const RenameChannel = () => {
+function RenameChannel() {
   const dispatch = useDispatch();
   const inputEl = useRef();
   useEffect(() => {
@@ -18,11 +18,11 @@ const RenameChannel = () => {
   const [channelName, setChannelName] = useState('');
   const [error, setError] = useState('');
   const channelToRename = channels.find(
-    (channel) => channel.id === Number(idToChange)
+    (channel) => channel.id === Number(idToChange),
   );
 
   const alreadyExists = channels.find(
-    (channel) => channel.name === channelName
+    (channel) => channel.name === channelName,
   );
   const { id, removable, ...rest } = channelToRename;
   const name = Object.values(rest).join('');
@@ -43,8 +43,8 @@ const RenameChannel = () => {
       >
         <Modal.Header>
           <Modal.Title>
-{`${t('renameChannel')} "${name}" ?`}
-</Modal.Title>
+            {`${t('renameChannel')} "${name}" ?`}
+          </Modal.Title>
           <button
             type="button"
             aria-label="Close"
@@ -60,20 +60,22 @@ const RenameChannel = () => {
           <FormGroup>
             <FormControl
               value={channelName}
-              id = 'name'
-              name = 'name'
+              id="name"
+              name="name"
               ref={inputEl}
               onChange={(e) => {
                 e.preventDefault();
                 setChannelName(e.target.value);
               }}
             />
-                        <label className = 'visually-hidden' htmlFor="name">
-{t('channelName')}
-</label>
-            {error && <p className="text-danger">
-{t('channelExists')}
-</p>}
+            <label className="visually-hidden" htmlFor="name">
+              {t('channelName')}
+            </label>
+            {error && (
+            <p className="text-danger">
+              {t('channelExists')}
+            </p>
+            )}
           </FormGroup>
         </Modal.Body>
         <Modal.Footer>
@@ -88,11 +90,11 @@ const RenameChannel = () => {
           >
             {' '}
             {t('cancel')}
-{' '}
+            {' '}
           </button>
         </Modal.Footer>
       </form>
     </Modal>
   );
-};
+}
 export default RenameChannel;

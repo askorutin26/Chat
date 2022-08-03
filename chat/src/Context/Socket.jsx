@@ -4,35 +4,34 @@ import { useTranslation } from 'react-i18next';
 import {
   addChannel,
   removeChannel,
-  renameChannel
+  renameChannel,
 } from '../slices/channels.js';
 import { addMessage } from '../slices/messages.js';
 import store from '../slices/index.js';
 
 const SocketContext = createContext({});
-const notify = (message) =>
-  toast.success(message, {
-    position: 'top-right',
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined
-  });
+const notify = (message) => toast.success(message, {
+  position: 'top-right',
+  autoClose: 5000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+});
 function SocketProvider({ socket, children }) {
   const { t } = useTranslation();
   useEffect(() => {
     socket.on('newMessage', (message) => {
       const {
- id, channelId, username, ...rest
-} = message;
+        id, channelId, username, ...rest
+      } = message;
       const body = Object.values(rest).join('');
       const normalizedMessage = {
         body,
         channelId,
         id,
-        username
+        username,
       };
       store.dispatch(addMessage(normalizedMessage));
     });
@@ -43,7 +42,7 @@ function SocketProvider({ socket, children }) {
       const normalizedChannel = {
         name,
         id,
-        removable
+        removable,
       };
       store.dispatch(addChannel(normalizedChannel));
       notify(t('channelCreated'));
@@ -65,7 +64,7 @@ function SocketProvider({ socket, children }) {
     addNewMessage: (message) => socket.emit('newMessage', message),
     addNewChannel: (channel) => socket.emit('newChannel', channel),
     removeChannel: (channel) => socket.emit('removeChannel', channel),
-    renameChannel: (channel) => socket.emit('renameChannel', channel)
+    renameChannel: (channel) => socket.emit('renameChannel', channel),
   };
 
   return (

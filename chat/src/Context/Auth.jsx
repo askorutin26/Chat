@@ -13,9 +13,11 @@ function AuthProvider({ children }) {
     setLogged(false);
   };
   const props = { loggedIn, logIn, logOut };
-  return (<AuthContext.Provider value={props}>
-{children}
-</AuthContext.Provider>);
+  return (
+    <AuthContext.Provider value={props}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 export { AuthProvider };
 export { AuthContext };

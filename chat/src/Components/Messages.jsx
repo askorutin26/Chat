@@ -7,7 +7,7 @@ function Messages() {
   const { messages, currentChannelId } = useAppContext();
 
   const channelMessages = messages.filter(
-    (message) => message.channelId === currentChannelId
+    (message) => message.channelId === currentChannelId,
   );
 
   return channelMessages.map((message) => {
@@ -15,10 +15,10 @@ function Messages() {
     return (
       <div className="text-break mb-2" id={id} key={id}>
         <b>
-{username}
-</b>
-:
-{filter.clean(body)}
+          {username}
+        </b>
+        :
+        {filter.clean(body)}
       </div>
     );
   });

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useWebSockets, useAppContext } from '../Hooks/index.js';
 import { setShow } from '../slices/modals.js';
 
-const AddChannel = () => {
+function AddChannel() {
   const dispatch = useDispatch();
   const inputEl = useRef();
   useEffect(() => {
@@ -28,7 +28,7 @@ const AddChannel = () => {
         onSubmit={(e) => {
           e.preventDefault();
           const alreadyExists = channels.find(
-            (channel) => channel.name === channelName
+            (channel) => channel.name === channelName,
           );
           if (alreadyExists !== undefined) {
             setError('The channel with this name already exists');
@@ -41,8 +41,8 @@ const AddChannel = () => {
       >
         <Modal.Header>
           <Modal.Title>
-{t('addChannel')}
-</Modal.Title>
+            {t('addChannel')}
+          </Modal.Title>
           <button
             type="button"
             aria-label="Close"
@@ -58,20 +58,22 @@ const AddChannel = () => {
           <FormGroup>
             <FormControl
               value={channelName}
-              id = 'name'
-              name = 'name'
+              id="name"
+              name="name"
               ref={inputEl}
               onChange={(e) => {
                 e.preventDefault();
                 setChannelName(e.target.value);
               }}
             />
-            <label className = 'visually-hidden' htmlFor="name">
-{t('channelName')}
-</label>
-            {error && <p className="text-danger">
-{t('channelExists')}
-</p>}
+            <label className="visually-hidden" htmlFor="name">
+              {t('channelName')}
+            </label>
+            {error && (
+            <p className="text-danger">
+              {t('channelExists')}
+            </p>
+            )}
           </FormGroup>
         </Modal.Body>
         <Modal.Footer>
@@ -87,11 +89,11 @@ const AddChannel = () => {
           >
             {' '}
             {t('cancel')}
-{' '}
+            {' '}
           </button>
         </Modal.Footer>
       </form>
     </Modal>
   );
-};
+}
 export default AddChannel;

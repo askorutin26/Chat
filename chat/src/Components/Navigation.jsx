@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAuthContext } from '../Hooks/index.js';
 import routes from '../routes.js';
 
-const Navigation = () => {
+function Navigation() {
   const { t } = useTranslation();
   const authContext = useAuthContext();
   const { loggedIn, logOut } = authContext;
@@ -34,5 +34,5 @@ const Navigation = () => {
       </Container>
     </Navbar>
   );
-};
+}
 export default Navigation;

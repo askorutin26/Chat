@@ -6,7 +6,7 @@ import { useWebSockets, useAppContext } from '../Hooks/index.js';
 
 import { setShow } from '../slices/modals.js';
 
-const SubmitDelete = () => {
+function SubmitDelete() {
   console.log('SUBMIT DELETE RENDERED');
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -17,8 +17,8 @@ const SubmitDelete = () => {
   console.log(channelToDelete);
   const name = (
     <p className="font-weight-bold">
-{`"${channelToDelete.name}"`}
-</p>
+      {`"${channelToDelete.name}"`}
+    </p>
   );
 
   return (
@@ -32,8 +32,8 @@ const SubmitDelete = () => {
       >
         <Modal.Header>
           <Modal.Title>
-{t('submitDeletion')}
-</Modal.Title>
+            {t('submitDeletion')}
+          </Modal.Title>
           <button
             type="button"
             aria-label="Close"
@@ -50,13 +50,13 @@ const SubmitDelete = () => {
             {' '}
             {`${t('submitDeleteChannel')}`}
             {name}
-{' '}
+            {' '}
           </h4>
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-danger" type="submit" >
-{t('delete')}
-</button>
+          <button className="btn btn-danger" type="submit">
+            {t('delete')}
+          </button>
           <button
             type="button"
             className="btn btn-secondary"
@@ -68,12 +68,12 @@ const SubmitDelete = () => {
           >
             {' '}
             {t('cancel')}
-{' '}
+            {' '}
           </button>
         </Modal.Footer>
       </form>
     </Modal>
   );
-};
+}
 
 export default SubmitDelete;

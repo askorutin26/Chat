@@ -31,7 +31,7 @@ export default function Signup() {
     repeatedPassword: yup
       .string()
       .required('passwordRequired')
-      .oneOf([yup.ref('password'), null], 'passwordsMismatch')
+      .oneOf([yup.ref('password'), null], 'passwordsMismatch'),
   });
 
   return (
@@ -44,7 +44,7 @@ export default function Signup() {
                 initialValues={{
                   username: '',
                   password: '',
-                  repeatedPassword: ''
+                  repeatedPassword: '',
                 }}
                 validationSchema={validationSchema}
                 onSubmit={(values, { setSubmitting }) => {
@@ -55,7 +55,7 @@ export default function Signup() {
                   axios
                     .post(path, {
                       username,
-                      password
+                      password,
                     })
                     .then((response) => {
                       const { data } = response;
@@ -86,15 +86,15 @@ export default function Signup() {
                   handleChange,
                   handleBlur,
                   handleSubmit,
-                  isSubmitting
+                  isSubmitting,
                 }) => (
                   <Form
                     className="col-12 col-md-6 mt-3 mt-mb-0"
                     onSubmit={handleSubmit}
                   >
                     <h1 className="text-center mb-4">
-{t('signingUp')}
-</h1>
+                      {t('signingUp')}
+                    </h1>
                     <Form.Group className="form-floating mb-3">
                       <Form.Control
                         type="text"
@@ -179,12 +179,12 @@ export default function Signup() {
             <Container bsPrefix="card-footer p-4">
               <Container bsPrefix="text-center">
                 <span>
-{`${t('noProfile')}?`}
-{' '}
- </span>
+                  {`${t('noProfile')}?`}
+                  {' '}
+                </span>
                 <a href="/signup">
-{t('signUp')}
-</a>
+                  {t('signUp')}
+                </a>
               </Container>
             </Container>
           </Container>

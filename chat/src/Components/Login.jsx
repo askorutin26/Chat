@@ -32,7 +32,7 @@ export default function Login() {
               <Formik
                 initialValues={{
                   username: '',
-                  password: ''
+                  password: '',
                 }}
                 onSubmit={(values, { setSubmitting }) => {
                   const path = routes.loginPath();
@@ -56,15 +56,15 @@ export default function Login() {
                 }}
               >
                 {({
-                  values, handleChange, handleSubmit, isSubmitting
+                  values, handleChange, handleSubmit, isSubmitting,
                 }) => (
                   <Form
                     className="col-12 col-md-6 mt-3 mt-mb-0"
                     onSubmit={handleSubmit}
                   >
                     <h1 className="text-center mb-4">
-{t('logIn')}
-</h1>
+                      {t('logIn')}
+                    </h1>
                     <Form.Group className="form-floating mb-3">
                       <Form.Control
                         type="text"
@@ -113,12 +113,12 @@ export default function Login() {
             <Container bsPrefix="card-footer p-4">
               <Container bsPrefix="text-center">
                 <span>
-{`${t('noProfile')}?`}
-{' '}
- </span>
+                  {`${t('noProfile')}?`}
+                  {' '}
+                </span>
                 <a href="/signup">
-{t('signUp')}
-</a>
+                  {t('signUp')}
+                </a>
               </Container>
             </Container>
           </Container>
