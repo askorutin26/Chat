@@ -59,9 +59,8 @@ function Chat() {
             id, name, removable, ...rest
           } = channel;
 
-
           const normalizedName = !name ? Object.values(rest).join('') : name;
-          return { id, name: normalizedName, removable, };
+          return { id, name: normalizedName, removable };
         });
 
         const normalizedMessages = messages.map((message) => {

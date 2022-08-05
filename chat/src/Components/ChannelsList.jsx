@@ -95,7 +95,7 @@ function ChannelsList() {
     );
   }
   return channels.map((channel) => {
-    const { removable, id, name  } = channel;
+    const { removable, id, name } = channel;
     const isActive = id === activeChannelId;
 
     const btnClass = cn(

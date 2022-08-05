@@ -9,7 +9,6 @@ import { messagesSelectors } from '../slices/messages.js';
 const AppContext = createContext({});
 
 function AppProvider({ children }) {
-
   const channels = useSelector(channelsSelectors.selectAll);
   const messages = useSelector(messagesSelectors.selectAll);
   const modals = useSelector((state) => state.modals);
