@@ -72,8 +72,7 @@ function RemovableButton({ props }) {
   );
 }
 function NonRemovableButton({ props }) {
-  const { id, name, btnClass, dispatch,
-    t, } = props;
+  const { id, name, btnClass, dispatch } = props;
   return (
     <Button
       id={id}
