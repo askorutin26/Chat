@@ -14,70 +14,14 @@ import { useAppContext } from '../Hooks/index.js';
 
 import { setShow, setId } from '../slices/modals.js';
 
-function ChannelsList() {
-  const dispatch = useDispatch();
-  const { t } = useTranslation();
-  const { channels, activeChannelId } = useAppContext();
+function RemovableButton({ props }) {
+  const {
+    id, name, isActive, btnClass, dispatch,
+    t,
+  } = props;
 
-  function RemovableButton({ props }) {
-    const {
-      id, name, isActive, btnClass,
-    } = props;
-
-    return (
-      <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
-        <Button
-          id={id}
-          variant="success"
-          bsPrefix={btnClass}
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(setActiveChannel(id));
-          }}
-        >
-          <span className="me-1"># </span>
-          { name }
-        </Button>
-        <Dropdown.Toggle
-          split
-          bsPrefix={`${
-            isActive ? 'btn-secondary' : 'btn-light'
-          } flex-grow-0 dropdown-toggle dropdown-toggle-split btn`}
-          id="dropdown-split-basic"
-        >
-          { ' ' }
-          <span className="visually-hidden">
-            Управление каналом
-          </span>
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item
-            href="#/action-1"
-            onClick={(e) => {
-              e.preventDefault();
-              dispatch(setId(id));
-              dispatch(setShow({ remove: true }));
-            }}
-          >
-            { t('delete') }
-          </Dropdown.Item>
-          <Dropdown.Item
-            href="#/action-2"
-            onClick={(e) => {
-              e.preventDefault();
-              dispatch(setId(id));
-              dispatch(setShow({ rename: true }));
-            }}
-          >
-            { t('rename') }
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-    );
-  }
-  function NonRemovableButton({ props }) {
-    const { id, name, btnClass } = props;
-    return (
+  return (
+    <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
       <Button
         id={id}
         variant="success"
@@ -87,13 +31,72 @@ function ChannelsList() {
           dispatch(setActiveChannel(id));
         }}
       >
-        <span className="me-1">
-          #
-        </span>
+        <span className="me-1"># </span>
         { name }
       </Button>
-    );
-  }
+      <Dropdown.Toggle
+        split
+        bsPrefix={`${
+          isActive ? 'btn-secondary' : 'btn-light'
+        } flex-grow-0 dropdown-toggle dropdown-toggle-split btn`}
+        id="dropdown-split-basic"
+      >
+        { ' ' }
+        <span className="visually-hidden">
+          Управление каналом
+        </span>
+      </Dropdown.Toggle>
+      <Dropdown.Menu>
+        <Dropdown.Item
+          href="#/action-1"
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(setId(id));
+            dispatch(setShow({ remove: true }));
+          }}
+        >
+          { t('delete') }
+        </Dropdown.Item>
+        <Dropdown.Item
+          href="#/action-2"
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(setId(id));
+            dispatch(setShow({ rename: true }));
+          }}
+        >
+          { t('rename') }
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+function NonRemovableButton({ props }) {
+  const { id, name, btnClass, dispatch,
+    t, } = props;
+  return (
+    <Button
+      id={id}
+      variant="success"
+      bsPrefix={btnClass}
+      onClick={(e) => {
+        e.preventDefault();
+        dispatch(setActiveChannel(id));
+      }}
+    >
+      <span className="me-1">
+        #
+      </span>
+      { name }
+    </Button>
+  );
+}
+
+function ChannelsList() {
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const { channels, activeChannelId } = useAppContext();
+
   return channels.map((channel) => {
     const { removable, id, name } = channel;
     const isActive = id === activeChannelId;
@@ -111,6 +114,8 @@ function ChannelsList() {
       name,
       isActive,
       btnClass,
+      dispatch,
+      t,
     };
     return (
       <ListGroup.Item
