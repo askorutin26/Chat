@@ -19,17 +19,17 @@ import SubmitDelete from '../Modals/SubmitDelete.jsx';
 import RenameChannel from '../Modals/RenameChannel.jsx';
 
 import { setShow } from '../slices/modals.js';
-import { addChannels } from '../slices/channels.js';
+import { addChannels, setActiveChannel } from '../slices/channels.js';
 import { addMessages } from '../slices/messages.js';
-import { setCurrentChannel } from '../slices/currentChannel.js';
 
 import routes from '../routes.js';
 
-function Chat() {
-  console.log('CHAT');
-  const { loginPage } = routes;
+function Chat() {  
+  const { loginPage } = routes; 
+  
   const AuthContext = useAuthContext();
   const { logOut } = AuthContext;
+ 
   const notifyError = (message) => toast.error(message, {
     position: 'top-right',
     autoClose: 5000,
@@ -54,12 +54,14 @@ function Chat() {
 
         const { channels, messages, currentChannelId } = data;
 
-        const normilizedChannels = channels.map((channel) => {
+        const normilizedChannels = channels.map((channel) => {         
           const {
             id, name, removable, ...rest
           } = channel;
+
+         
           const normalizedName = !name ? Object.values(rest).join('') : name;
-          return { id, name: normalizedName, removable };
+          return { id, name: normalizedName, removable, };
         });
 
         const normalizedMessages = messages.map((message) => {
@@ -78,7 +80,7 @@ function Chat() {
         batch(() => {
           dispatch(addChannels(normilizedChannels));
           dispatch(addMessages(normalizedMessages));
-          dispatch(setCurrentChannel(currentChannelId));
+          dispatch(setActiveChannel(currentChannelId));
         });
       })
       .catch((error) => {
@@ -89,13 +91,14 @@ function Chat() {
       });
   }, [dispatch, logOut, loginPage, navigate, t]);
   const {
-    channels, messages, currentChannelId, modals,
+    channels, messages, modals, activeChannelId,
   } = useAppContext();
-  const currentChannelName = currentChannelId
-    ? channels.find((channel) => channel.id === currentChannelId).name
+  
+  const currentChannelName = activeChannelId
+    ? channels.find((channel) => channel.id === activeChannelId).name
     : null;
   const messagesCount = messages.filter(
-    (message) => message.channelId === currentChannelId,
+    (message) => message.channelId === activeChannelId,
   ).length;
 
   return (

@@ -18,7 +18,7 @@ function MessageInput() {
     return user ? setUsername(user) : setUsername('');
   }, [message]);
 
-  const { currentChannelId } = useAppContext();
+  const { activeChannelId } = useAppContext();
   const { t } = useTranslation();
   const { addNewMessage } = useWebSockets();
 
@@ -29,7 +29,7 @@ function MessageInput() {
         e.preventDefault();
         const data = {
           ...message,
-          channelId: currentChannelId,
+          channelId: activeChannelId,
           username,
         };
         if (message.length !== 0) {

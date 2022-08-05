@@ -4,10 +4,10 @@ import { useAppContext } from '../Hooks/index.js';
 const filter = require('leo-profanity');
 
 function Messages() {
-  const { messages, currentChannelId } = useAppContext();
+  const { messages, activeChannelId } = useAppContext();
 
   const channelMessages = messages.filter(
-    (message) => message.channelId === currentChannelId,
+    (message) => message.channelId === activeChannelId,
   );
 
   return channelMessages.map((message) => {

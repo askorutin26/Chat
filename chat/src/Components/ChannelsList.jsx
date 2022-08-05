@@ -8,7 +8,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
-import { setCurrentChannel } from '../slices/currentChannel.js';
+import { setActiveChannel } from '../slices/channels.js';
 
 import { useAppContext } from '../Hooks/index.js';
 
@@ -17,11 +17,13 @@ import { setShow, setId } from '../slices/modals.js';
 function ChannelsList() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { channels, currentChannelId } = useAppContext();
+  const { channels, activeChannelId } = useAppContext();
+ 
   function RemovableButton({ props }) {
     const {
       id, name, isActive, btnClass,
     } = props;
+    
     return (
       <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
         <Button
@@ -30,7 +32,7 @@ function ChannelsList() {
           bsPrefix={btnClass}
           onClick={(e) => {
             e.preventDefault();
-            dispatch(setCurrentChannel(id));
+            dispatch(setActiveChannel(id));
           }}
         >
           <span className="me-1"># </span>
@@ -82,7 +84,8 @@ function ChannelsList() {
         bsPrefix={btnClass}
         onClick={(e) => {
           e.preventDefault();
-          dispatch(setCurrentChannel(id));
+          console.log(id)
+          dispatch(setActiveChannel(id));
         }}
       >
         <span className="me-1">
@@ -93,9 +96,9 @@ function ChannelsList() {
     );
   }
   return channels.map((channel) => {
-    const { removable, id, name } = channel;
-    const isActive = currentChannelId === id;
-
+    const { removable, id, name  } = channel;
+    const isActive = id === activeChannelId;
+   
     const btnClass = cn(
       'btn',
       'w-100',
