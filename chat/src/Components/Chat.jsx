@@ -24,12 +24,12 @@ import { addMessages } from '../slices/messages.js';
 
 import routes from '../routes.js';
 
-function Chat() {  
-  const { loginPage } = routes; 
-  
+function Chat() {
+  const { loginPage } = routes;
+
   const AuthContext = useAuthContext();
   const { logOut } = AuthContext;
- 
+
   const notifyError = (message) => toast.error(message, {
     position: 'top-right',
     autoClose: 5000,
@@ -54,12 +54,12 @@ function Chat() {
 
         const { channels, messages, currentChannelId } = data;
 
-        const normilizedChannels = channels.map((channel) => {         
+        const normilizedChannels = channels.map((channel) => {
           const {
             id, name, removable, ...rest
           } = channel;
 
-         
+
           const normalizedName = !name ? Object.values(rest).join('') : name;
           return { id, name: normalizedName, removable, };
         });
@@ -93,7 +93,7 @@ function Chat() {
   const {
     channels, messages, modals, activeChannelId,
   } = useAppContext();
-  
+
   const currentChannelName = activeChannelId
     ? channels.find((channel) => channel.id === activeChannelId).name
     : null;

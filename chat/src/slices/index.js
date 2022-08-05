@@ -6,7 +6,7 @@ import modalsReducer from './modals.js';
 export default configureStore({
   reducer: {
     channels: channelsReducer,
-    messages: messagesReducer,   
+    messages: messagesReducer,
     modals: modalsReducer,
   },
 });

@@ -10,11 +10,11 @@ const AppContext = createContext({});
 
 function AppProvider({ children }) {
 
-  const channels = useSelector(channelsSelectors.selectAll);  
+  const channels = useSelector(channelsSelectors.selectAll);
   const messages = useSelector(messagesSelectors.selectAll);
   const modals = useSelector((state) => state.modals);
-  const activeChannelId  = useSelector((state) => state.channels).displayedChannelId;
-  
+  const activeChannelId = useSelector((state) => state.channels).displayedChannelId;
+
   const { idToChange } = modals;
   const appProps = {
     channels,
@@ -23,7 +23,7 @@ function AppProvider({ children }) {
     activeChannelId,
     idToChange,
   };
-  
+
   return (
     <AppContext.Provider value={appProps}>
       { children }

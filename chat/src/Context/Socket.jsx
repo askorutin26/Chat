@@ -5,7 +5,7 @@ import {
   addChannel,
   removeChannel,
   renameChannel,
-  setActiveChannel
+  setActiveChannel,
 } from '../slices/channels.js';
 import { addMessage } from '../slices/messages.js';
 import store from '../slices/index.js';
@@ -48,13 +48,12 @@ function SocketProvider({ socket, children }) {
       };
       store.dispatch(addChannel(normalizedChannel));
       store.dispatch(setActiveChannel(id));
-      
       notify(t('channelCreated'));
     });
 
     socket.on('removeChannel', (data) => {
       store.dispatch(removeChannel(data.id));
-      store.dispatch(setActiveChannel(1));      
+      store.dispatch(setActiveChannel(1));
       notify(t('channelRemoved'));
     });
 

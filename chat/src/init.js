@@ -12,7 +12,7 @@ import App from './App.jsx';
 import { SocketProvider, AuthProvider, AppProvider } from './Context';
 
 const init = async (socket) => {
- 
+
   const clearRU = leoProfanity.getDictionary('ru');
   leoProfanity.add(clearRU);
   i18n.use(initReactI18next).init({

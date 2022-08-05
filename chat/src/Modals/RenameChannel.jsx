@@ -14,7 +14,7 @@ function RenameChannel() {
   const { t } = useTranslation();
   const { renameChannel } = useWebSockets();
   const { channels, modals, idToChange } = useAppContext();
-  
+
   const [channelName, setChannelName] = useState('');
   const [error, setError] = useState('');
   const channelToRename = channels.find(

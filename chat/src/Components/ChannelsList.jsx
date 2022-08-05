@@ -18,12 +18,12 @@ function ChannelsList() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { channels, activeChannelId } = useAppContext();
- 
+
   function RemovableButton({ props }) {
     const {
       id, name, isActive, btnClass,
     } = props;
-    
+
     return (
       <Dropdown as={ButtonGroup} bsPrefix="d-flex dropdown btn-group">
         <Button
@@ -84,7 +84,6 @@ function ChannelsList() {
         bsPrefix={btnClass}
         onClick={(e) => {
           e.preventDefault();
-          console.log(id)
           dispatch(setActiveChannel(id));
         }}
       >
@@ -98,7 +97,7 @@ function ChannelsList() {
   return channels.map((channel) => {
     const { removable, id, name  } = channel;
     const isActive = id === activeChannelId;
-   
+
     const btnClass = cn(
       'btn',
       'w-100',
