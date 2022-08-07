@@ -21,8 +21,7 @@ function RenameChannel() {
   const channelToRename = channels.find(
     (channel) => channel.id === Number(idToChange),
   );
-  const schema = yup.object({name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' ),
-});
+  const schema = yup.object({ name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' ), });
 
   const { id, removable, ...rest } = channelToRename;
   const name = Object.values(rest).join('');
