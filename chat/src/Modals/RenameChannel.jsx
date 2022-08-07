@@ -4,7 +4,7 @@ import { Modal, FormGroup, FormControl } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useWebSockets, useAppContext } from '../Hooks/index.js';
 import { setShow } from '../slices/modals.js';
-
+import * as yup from 'yup';
 function RenameChannel() {
   const dispatch = useDispatch();
   const inputEl = useRef();
@@ -16,14 +16,14 @@ function RenameChannel() {
   const { channels, modals, idToChange } = useAppContext();
 
   const [channelName, setChannelName] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(false);
   const channelToRename = channels.find(
     (channel) => channel.id === Number(idToChange),
   );
+  const schema = yup.object({
+    name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' )
+  });
 
-  const alreadyExists = channels.find(
-    (channel) => channel.name === channelName,
-  );
   const { id, removable, ...rest } = channelToRename;
   const name = Object.values(rest).join('');
 
@@ -32,18 +32,20 @@ function RenameChannel() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-
-          if (alreadyExists !== undefined) {
-            setError('The channel with this name already exists');
-          } else {
+          schema.validate({ name: channelName }).then((response) => {
             renameChannel({ id: idToChange, name: channelName });
             dispatch(setShow({ rename: false }));
-          }
+            setError(false);
+          }).catch((error) => {
+            setError(true);
+            console.log(error);
+          })
+
         }}
       >
         <Modal.Header>
           <Modal.Title>
-            { `${t('renameChannel')} "${name}" ?` }
+            { `${t('Modals.renameChannel')} "${name}" ?` }
           </Modal.Title>
           <button
             type="button"
@@ -69,17 +71,17 @@ function RenameChannel() {
               }}
             />
             <label className="visually-hidden" htmlFor="name">
-              { t('channelName') }
+              { t('Modals.channelName') }
             </label>
             { error && (
             <p className="text-danger">
-              { t('channelExists') }
+              { t('Modals.channelExists') }
             </p>
             ) }
           </FormGroup>
         </Modal.Body>
         <Modal.Footer>
-          <input className="btn btn-primary" type="submit" value={t('send')} />
+          <input className="btn btn-primary" type="submit" value={t('Modals.send')} />
           <button
             type="button"
             className="btn btn-secondary"
@@ -89,7 +91,7 @@ function RenameChannel() {
             }}
           >
             { ' ' }
-            { t('cancel') }
+            { t('Modals.cancel') }
             { ' ' }
           </button>
         </Modal.Footer>

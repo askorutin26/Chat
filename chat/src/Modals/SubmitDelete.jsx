@@ -32,7 +32,7 @@ function SubmitDelete() {
       >
         <Modal.Header>
           <Modal.Title>
-            { t('submitDeletion') }
+            { t('Modals.submitDeletion') }
           </Modal.Title>
           <button
             type="button"
@@ -48,14 +48,14 @@ function SubmitDelete() {
         <Modal.Body>
           <h4 className="font-weight-normal">
             { ' ' }
-            { `${t('submitDeleteChannel')}` }
+            { `${t('Modals.submitDeleteChannel')}` }
             { name }
             { ' ' }
           </h4>
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-danger" type="submit">
-            { t('delete') }
+            { t('Modals.delete') }
           </button>
           <button
             type="button"
@@ -67,7 +67,7 @@ function SubmitDelete() {
             }}
           >
             { ' ' }
-            { t('cancel') }
+            { t('Modals.cancel') }
             { ' ' }
           </button>
         </Modal.Footer>
