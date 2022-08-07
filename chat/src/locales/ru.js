@@ -16,24 +16,24 @@ const ru = {
     SignupBlock: {
       noProfile: 'Нет аккаунта',
       signingUp: 'Регистрация',
-  },
+    },
     Channels: {
       delete: 'Удалить',
       rename: 'Переименовать',
       channelControl: 'Управление каналом',
-  },
+    },
     Chat: {
       channels: 'Каналы',
       connectionError: 'Ошибка соединения',
-  },
+    },
     MessageInput: {
       enterMessage: 'Введите сообщение',
       newMessage: 'Новое сообщение',
       send: 'Отправить',
-  },
+    },
     Navigation: {
       logOut: 'Выйти',
-  },
+    },
 
     Modals: {
       addChannel: 'Добавить канал',
@@ -50,7 +50,7 @@ const ru = {
       channelCreated: 'Канал создан',
       channelRenamed: 'Канал переименован',
       channelRemoved: 'Канал удалён',
-  },
+    },
 
     message_one: '{{count}} сообщение',
     message_few: '{{count}} сообщения',

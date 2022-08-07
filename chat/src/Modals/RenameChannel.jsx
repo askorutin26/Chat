@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal, FormGroup, FormControl } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import * as yup from 'yup';
 import { useWebSockets, useAppContext } from '../Hooks/index.js';
 import { setShow } from '../slices/modals.js';
-import * as yup from 'yup';
+
 function RenameChannel() {
   const dispatch = useDispatch();
   const inputEl = useRef();
@@ -16,13 +17,12 @@ function RenameChannel() {
   const { channels, modals, idToChange } = useAppContext();
 
   const [channelName, setChannelName] = useState('');
-  const [error, setError] = useState(false);
+  const [ERR, setError] = useState(false);
   const channelToRename = channels.find(
     (channel) => channel.id === Number(idToChange),
   );
-  const schema = yup.object({
-    name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' )
-  });
+  const schema = yup.object({name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' ),
+});
 
   const { id, removable, ...rest } = channelToRename;
   const name = Object.values(rest).join('');
@@ -40,7 +40,6 @@ function RenameChannel() {
             setError(true);
             console.log(error);
           })
-
         }}
       >
         <Modal.Header>
@@ -73,7 +72,7 @@ function RenameChannel() {
             <label className="visually-hidden" htmlFor="name">
               { t('Modals.channelName') }
             </label>
-            { error && (
+            { ERR && (
             <p className="text-danger">
               { t('Modals.channelExists') }
             </p>

@@ -17,12 +17,12 @@ function AddChannel() {
   const { t } = useTranslation();
 
   const [channelName, setChannelName] = useState('');
-  const [error, setError] = useState(false);
+  const [ERR, setError] = useState(false);
 
   const { addNewChannel } = useWebSockets();
   const { channels, modals } = useAppContext();
   const schema = yup.object({
-    name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' )
+    name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' ),
   });
   return (
     <Modal show={modals.add}>
@@ -36,7 +36,8 @@ function AddChannel() {
             setChannelName('');
           }).catch((error) => {
             setError(true);
-            console.log(error);})
+            console.log(error); 
+          })
         }}
       >
         <Modal.Header>
@@ -69,7 +70,7 @@ function AddChannel() {
             <label className="visually-hidden" htmlFor="name">
               { t('Modals.channelName') }
             </label>
-            { error && (
+            { ERR && (
             <p className="text-danger">
               { t('Modals.channelExists') }
             </p>
