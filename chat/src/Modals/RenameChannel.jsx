@@ -32,7 +32,7 @@ function RenameChannel() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          schema.validate({ name: channelName }).then((response) => {
+          schema.validate({ name: channelName }).then(() => {
             renameChannel({ id: idToChange, name: channelName });
             dispatch(setShow({ rename: false }));
             setError(false);

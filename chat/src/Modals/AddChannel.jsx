@@ -3,10 +3,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Modal, FormGroup, FormControl } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import * as yup from 'yup';
 import { useWebSockets, useAppContext } from '../Hooks/index.js';
 import { setShow } from '../slices/modals.js';
-import * as yup from 'yup';
-
 
 function AddChannel() {
   const dispatch = useDispatch();
@@ -25,21 +24,19 @@ function AddChannel() {
   const schema = yup.object({
     name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' )
   });
-
   return (
     <Modal show={modals.add}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          schema.validate({ name: channelName }).then((response) => {
+          schema.validate({ name: channelName }).then(() => {
             addNewChannel({ name: channelName });
             dispatch(setShow({ add: false }));
             setError(false);
             setChannelName('');
           }).catch((error) => {
             setError(true);
-            console.log(error);          })
-
+            console.log(error);})
         }}
       >
         <Modal.Header>

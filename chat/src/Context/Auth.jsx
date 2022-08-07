@@ -9,7 +9,8 @@ function AuthProvider({ children }) {
   const logIn = (token, username) => {
     localStorage.setItem('token', token);
     localStorage.setItem('username', username);
-    setLogged(true)};
+    setLogged(true);
+  };
   const logOut = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
