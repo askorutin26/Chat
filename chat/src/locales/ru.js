@@ -1,55 +1,55 @@
 const ru = {
   translation: {
     title: 'Hexlet Chat',
-  Login: {
-    logIn: 'Войти',
-    username: 'Ваш ник',
-    password: 'Пароль',
+    Login: {
+      logIn: 'Войти',
+      username: 'Ваш ник',
+      password: 'Пароль',
     },
-  Signup: {
-    signupUser: 'Имя пользователя',
-    password: 'Пароль',
-    repeatPassword: 'Подтвердите пароль',
-    signingUp: 'Регистрация',
-    signUp: 'Зарегистрироваться',
+    Signup: {
+      signupUser: 'Имя пользователя',
+      password: 'Пароль',
+      repeatPassword: 'Подтвердите пароль',
+      signingUp: 'Регистрация',
+      signUp: 'Зарегистрироваться',
     },
-  SignupBlock: {
-    noProfile: 'Нет аккаунта',
-    signingUp: 'Регистрация',
+    SignupBlock: {
+      noProfile: 'Нет аккаунта',
+      signingUp: 'Регистрация',
   },
-  Channels: {
-    delete: 'Удалить',
-    rename: 'Переименовать',
-    channelControl: 'Управление каналом',
+    Channels: {
+      delete: 'Удалить',
+      rename: 'Переименовать',
+      channelControl: 'Управление каналом',
   },
-  Chat: {
-    channels: 'Каналы',
-    connectionError: 'Ошибка соединения',
+    Chat: {
+      channels: 'Каналы',
+      connectionError: 'Ошибка соединения',
   },
-  MessageInput: {
-    enterMessage: 'Введите сообщение',
-    newMessage: 'Новое сообщение',
-    send: 'Отправить',
+    MessageInput: {
+      enterMessage: 'Введите сообщение',
+      newMessage: 'Новое сообщение',
+      send: 'Отправить',
   },
-  Navigation: {
-    logOut: 'Выйти',
+    Navigation: {
+      logOut: 'Выйти',
   },
 
-  Modals: {
-    addChannel: 'Добавить канал',
-    channelName: 'Имя канала',
-    renameChannel: 'Переименовать канал',
-    channelExists: 'Такой канал уже существует',
-    submitDeletion: 'Подтвердить удаление',
-    submitDeleteChannel: 'Вы уверены что хотите удалить канал',
-    send: 'Отправить',
-    cancel: 'Отменить',
-    delete: 'Удалить',
+    Modals: {
+      addChannel: 'Добавить канал',
+      channelName: 'Имя канала',
+      renameChannel: 'Переименовать канал',
+      channelExists: 'Такой канал уже существует',
+      submitDeletion: 'Подтвердить удаление',
+      submitDeleteChannel: 'Вы уверены что хотите удалить канал',
+      send: 'Отправить',
+      cancel: 'Отменить',
+      delete: 'Удалить',
     },
-  Notify: {
-    channelCreated: 'Канал создан',
-    channelRenamed: 'Канал переименован',
-    channelRemoved: 'Канал удалён',
+    Notify: {
+      channelCreated: 'Канал создан',
+      channelRenamed: 'Канал переименован',
+      channelRemoved: 'Канал удалён',
   },
 
     message_one: '{{count}} сообщение',
