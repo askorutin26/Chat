@@ -1,36 +1,60 @@
 const ru = {
   translation: {
-    title: 'Чат',
+    title: 'Hexlet Chat',
+  Login: {
     logIn: 'Войти',
-    logOut: 'Выйти',
-    signUp: 'Регистрация',
-    channels: 'Каналы',
-    channelExists: 'Такой канал уже существует',
-    send: 'Отправить',
-    submit: 'Подтвердить',
-    cancel: 'Отменить',
-    signupUser: 'Имя пользователя',
     username: 'Ваш ник',
     password: 'Пароль',
+    },
+  Signup: {
+    signupUser: 'Имя пользователя',
+    password: 'Пароль',
     repeatPassword: 'Подтвердите пароль',
-    newMessage: 'Новое сообщение',
-    enterMessage: 'Введите сообщение',
+    signingUp: 'Регистрация',
+    signUp: 'Зарегистрироваться',
+    },
+  SignupBlock: {
     noProfile: 'Нет аккаунта',
     signingUp: 'Регистрация',
-    addChannel: 'Добавить канал',
-    channelName: 'Имя канала',
+  },
+  Channels: {
     delete: 'Удалить',
     rename: 'Переименовать',
+    channelControl: 'Управление каналом',
+  },
+  Chat: {
+    channels: 'Каналы',
+    connectionError: 'Ошибка соединения',
+  },
+  MessageInput: {
+    enterMessage: 'Введите сообщение',
+    newMessage: 'Новое сообщение',
+    send: 'Отправить',
+  },
+  Navigation: {
+    logOut: 'Выйти',
+  },
+
+  Modals: {
+    addChannel: 'Добавить канал',
+    channelName: 'Имя канала',
     renameChannel: 'Переименовать канал',
+    channelExists: 'Такой канал уже существует',
     submitDeletion: 'Подтвердить удаление',
     submitDeleteChannel: 'Вы уверены что хотите удалить канал',
-    message_one: '{{count}} сообщение',
-    message_few: '{{count}} сообщения',
-    message_many: '{{count}} сообщений',
+    send: 'Отправить',
+    cancel: 'Отменить',
+    delete: 'Удалить',
+    },
+  Notify: {
     channelCreated: 'Канал создан',
     channelRenamed: 'Канал переименован',
     channelRemoved: 'Канал удалён',
-    connectionError: 'Ошибка соединения',
+  },
+
+    message_one: '{{count}} сообщение',
+    message_few: '{{count}} сообщения',
+    message_many: '{{count}} сообщений',
 
     loginErrors: { authError: 'Неверные имя пользователя или пароль' },
     signupErrors: {
