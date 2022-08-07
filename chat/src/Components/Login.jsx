@@ -21,7 +21,7 @@ export default function Login() {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const { chatPage } = routes;
+  const { chatPage, signupPage } = routes;
 
   return (
     <Container bsPrefix="container-fluid h-100">
@@ -41,11 +41,9 @@ export default function Login() {
                     .then((response) => {
                       const { data } = response;
                       const { token } = data;
-                      localStorage.setItem('token', token);
-                      localStorage.setItem('username', values.username);
                       setSubmitting(false);
                       setError('');
-                      logIn();
+                      logIn(token, values.username);
                       navigate(chatPage());
                     })
                     .catch((error) => {
@@ -63,7 +61,7 @@ export default function Login() {
                     onSubmit={handleSubmit}
                   >
                     <h1 className="text-center mb-4">
-                      { t('logIn') }
+                      { t('Login.logIn') }
                     </h1>
                     <Form.Group className="form-floating mb-3">
                       <Form.Control
@@ -76,7 +74,7 @@ export default function Login() {
                         value={values.username}
                       />
                       <Form.Label htmlFor="username">
-                        { t('username') }
+                        { t('Login.username') }
                       </Form.Label>
                     </Form.Group>
                     <Form.Group className="form-floating mb-4">
@@ -90,7 +88,7 @@ export default function Login() {
                         value={values.password}
                       />
                       <Form.Label htmlFor="password">
-                        { t('password') }
+                        { t('Login.password') }
                       </Form.Label>
                     </Form.Group>
 
@@ -104,7 +102,7 @@ export default function Login() {
                       className="w-100 mb-3 "
                       disabled={isSubmitting}
                     >
-                      { t('logIn') }
+                      { t('Login.logIn') }
                     </Button>
                   </Form>
                 ) }
@@ -113,11 +111,11 @@ export default function Login() {
             <Container bsPrefix="card-footer p-4">
               <Container bsPrefix="text-center">
                 <span>
-                  { `${t('noProfile')}?` }
+                  { `${t('SignupBlock.noProfile')}?` }
                   { ' ' }
                 </span>
-                <a href="/signup">
-                  { t('signUp') }
+                <a href={signupPage()}>
+                  { t('SignupBlock.signingUp') }
                 </a>
               </Container>
             </Container>

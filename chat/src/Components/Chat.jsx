@@ -86,7 +86,7 @@ function Chat() {
         console.log(error);
         logOut();
         navigate(loginPage());
-        notifyError(t('connectionError'));
+        notifyError(t('Chat.connectionError'));
       });
   }, [dispatch, logOut, loginPage, navigate, t]);
   const {
@@ -111,7 +111,7 @@ function Chat() {
           <Container bsPrefix="col-4 col-md-2 border-end pt-5 px-0 bg-light">
             <Container bsPrefix="d-flex justify-content-between mb-2 ps-4 pe-2">
               <span>
-                { t('channels') }
+                { t('Chat.channels') }
               </span>
               <button
                 type="button"

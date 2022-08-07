@@ -43,7 +43,7 @@ function RemovableButton({ props }) {
       >
         { ' ' }
         <span className="visually-hidden">
-          Управление каналом
+          {t('Channels.channelControl')}
         </span>
       </Dropdown.Toggle>
       <Dropdown.Menu>
@@ -55,7 +55,7 @@ function RemovableButton({ props }) {
             dispatch(setShow({ remove: true }));
           }}
         >
-          { t('delete') }
+          { t('Channels.delete') }
         </Dropdown.Item>
         <Dropdown.Item
           href="#/action-2"
@@ -65,7 +65,7 @@ function RemovableButton({ props }) {
             dispatch(setShow({ rename: true }));
           }}
         >
-          { t('rename') }
+          { t('Channels.rename') }
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

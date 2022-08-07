@@ -13,7 +13,7 @@ parserOptions:
 plugins:
   - react
 rules: {
- import/extensions: 0, 
+  import/extensions: 0, 
   import/no-unresolved: 0,
   react/prop-types: 0,
   no-console: 0,
@@ -25,8 +25,7 @@ rules: {
   functional/no-throw-statement: 0,
   no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }],
   testing-library/no-debug: 0,
-   no-trailing-spaces: 1,
+  no-trailing-spaces: 1,
   react/jsx-filename-extension: [1, { "extensions": [".js", ".jsx"] }],
  
-  
 }

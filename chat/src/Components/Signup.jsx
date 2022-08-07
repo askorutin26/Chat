@@ -20,7 +20,7 @@ export default function Signup() {
   const [errorName, setErrName] = useState('');
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { chatPage } = routes;
+  const { chatPage, signupPage } = routes;
   const validationSchema = yup.object({
     username: yup
       .string()
@@ -93,7 +93,7 @@ export default function Signup() {
                     onSubmit={handleSubmit}
                   >
                     <h1 className="text-center mb-4">
-                      { t('signingUp') }
+                      { t('Signup.signingUp') }
                     </h1>
                     <Form.Group className="form-floating mb-3">
                       <Form.Control
@@ -108,7 +108,7 @@ export default function Signup() {
                         isInvalid={touched.username && !!errors.username}
                       />
                       <Form.Label htmlFor="username">
-                        { t('signupUser') }
+                        { t('Signup.signupUser') }
                       </Form.Label>
                       { errors.username && touched.username ? (
                         <p className="text-danger">
@@ -129,7 +129,7 @@ export default function Signup() {
                         isInvalid={touched.password && !!errors.password}
                       />
                       <Form.Label htmlFor="password">
-                        { t('password') }
+                        { t('Signup.password') }
                       </Form.Label>
                       { errors.password && touched.password ? (
                         <p className="text-danger">
@@ -152,7 +152,7 @@ export default function Signup() {
                         }
                       />
                       <Form.Label htmlFor="repeatedPassword">
-                        { t('repeatPassword') }
+                        { t('Signup.repeatPassword') }
                       </Form.Label>
                       { errors.repeatedPassword && touched.repeatedPassword ? (
                         <p className="text-danger">
@@ -170,7 +170,7 @@ export default function Signup() {
                       type="submit"
                       className="w-100 mb-3 "
                     >
-                      { t('signUp') }
+                      { t('Signup.signUp') }
                     </Button>
                   </Form>
                 ) }
@@ -179,11 +179,11 @@ export default function Signup() {
             <Container bsPrefix="card-footer p-4">
               <Container bsPrefix="text-center">
                 <span>
-                  { `${t('noProfile')}?` }
+                  { `${t('SignupBlock.noProfile')}?` }
                   { ' ' }
                 </span>
-                <a href="/signup">
-                  { t('signUp') }
+                <a href={signupPage()}>
+                  { t('SignupBlock.signingUp') }
                 </a>
               </Container>
             </Container>

@@ -41,8 +41,8 @@ function MessageInput() {
       <InputGroup>
         <Form.Control
           className="border-0 p-0 ps-2 form-control"
-          placeholder={t('enterMessage')}
-          aria-label={t('newMessage')}
+          placeholder={t('MessageInput.enterMessage')}
+          aria-label={t('MessageInput.newMessage')}
           aria-describedby="basic-addon1"
           value={message}
           ref={inputEl}
@@ -53,7 +53,7 @@ function MessageInput() {
         />
 
         <Button type="submit" className="btn btn-primary btn-group-vertical">
-          { t('send') }
+          { t('MessageInput.send') }
         </Button>
       </InputGroup>
     </Form>

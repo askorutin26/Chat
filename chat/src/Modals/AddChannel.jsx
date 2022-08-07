@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { useWebSockets, useAppContext } from '../Hooks/index.js';
 import { setShow } from '../slices/modals.js';
+import * as yup from 'yup';
+
 
 function AddChannel() {
   const dispatch = useDispatch();
@@ -16,32 +18,33 @@ function AddChannel() {
   const { t } = useTranslation();
 
   const [channelName, setChannelName] = useState('');
+  const [error, setError] = useState(false);
 
   const { addNewChannel } = useWebSockets();
   const { channels, modals } = useAppContext();
-
-  const [error, setError] = useState('');
+  const schema = yup.object({
+    name: yup.mixed().notOneOf(channels.map((elem) => elem.name), 'already exists' )
+  });
 
   return (
     <Modal show={modals.add}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          const alreadyExists = channels.find(
-            (channel) => channel.name === channelName,
-          );
-          if (alreadyExists !== undefined) {
-            setError('The channel with this name already exists');
-          } else {
+          schema.validate({ name: channelName }).then((response) => {
             addNewChannel({ name: channelName });
             dispatch(setShow({ add: false }));
+            setError(false);
             setChannelName('');
-          }
+          }).catch((error) => {
+            setError(true);
+            console.log(error);          })
+
         }}
       >
         <Modal.Header>
           <Modal.Title>
-            { t('addChannel') }
+            { t('Modals.addChannel') }
           </Modal.Title>
           <button
             type="button"
@@ -67,17 +70,17 @@ function AddChannel() {
               }}
             />
             <label className="visually-hidden" htmlFor="name">
-              { t('channelName') }
+              { t('Modals.channelName') }
             </label>
             { error && (
             <p className="text-danger">
-              { t('channelExists') }
+              { t('Modals.channelExists') }
             </p>
             ) }
           </FormGroup>
         </Modal.Body>
         <Modal.Footer>
-          <input className="btn btn-primary" type="submit" value={t('send')} />
+          <input className="btn btn-primary" type="submit" value={t('Modals.send')} />
           <button
             type="button"
             className="btn btn-secondary"
@@ -88,7 +91,7 @@ function AddChannel() {
             }}
           >
             { ' ' }
-            { t('cancel') }
+            { t('Modals.cancel') }
             { ' ' }
           </button>
         </Modal.Footer>

@@ -48,19 +48,19 @@ function SocketProvider({ socket, children }) {
       };
       store.dispatch(addChannel(normalizedChannel));
       store.dispatch(setActiveChannel(id));
-      notify(t('channelCreated'));
+      notify(t('Notify.channelCreated'));
     });
 
     socket.on('removeChannel', (data) => {
       store.dispatch(removeChannel(data.id));
       store.dispatch(setActiveChannel(1));
-      notify(t('channelRemoved'));
+      notify(t('Notify.channelRemoved'));
     });
 
     socket.on('renameChannel', (data) => {
       const { id, removable, name } = data;
       store.dispatch(renameChannel({ id, changes: { removable, name } }));
-      notify(t('channelRenamed'));
+      notify(t('Notify.channelRenamed'));
     });
   }, [socket, t]);
 
