@@ -2,8 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "engines": {
-    "node": "6.11.1",
-    "npm": "8.16.0"
+    "node": "6.11.1"
   },
   "description": "hexlet project chat",
   "main": "index.js",
