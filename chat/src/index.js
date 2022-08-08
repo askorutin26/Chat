@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactDOM from 'react-dom/client';
 import { io } from 'socket.io-client';
-import init from './init.js';
+import init from './init.jsx';
 
 const app = async () => {
   const socket = io();
