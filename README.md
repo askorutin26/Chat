@@ -1,4 +1,4 @@
-### [Chat](chat-production-058b.up.railway.app)
+### [Chat](https://chat-production-058b.up.railway.app/)
 
 ### Start locally:
 `$make install`
